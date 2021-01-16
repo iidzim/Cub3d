@@ -1,0 +1,13 @@
+R    50 50
+NO        ../texture/mossy.xpm      
+SO ../texture/bluestone.xpm
+WE ../texture/greystone.xpm
+EA ../texture/redbrick.xpm
+S ../texture/barrel.xpm
+C  153,204,255
+F    224,224,224
+
+
+    1
+   1N1
+    1
