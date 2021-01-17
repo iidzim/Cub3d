@@ -6,7 +6,7 @@
 /*   By: iidzim <iidzim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 16:33:24 by iidzim            #+#    #+#             */
-/*   Updated: 2021/01/16 19:10:10 by iidzim           ###   ########.fr       */
+/*   Updated: 2021/01/17 18:12:41 by iidzim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		calcul_step_sidedist(t_data *d)
 /*
 **jump to next map square, OR in x-direction, OR in y-direction
 */
+
 int		perform_dda(t_data *d)
 {
 	while (d->hit == 0)
@@ -132,38 +133,5 @@ int		project_line(t_data *d)
 	d->drawend = d->height / 2 + d->lineheight / 2;
 	if (d->drawend > d->height)
 		d->drawend = d->height - 1;
-	return (1);
-}
-
-/*
-**draw the pixels of the stripe as a vertical line
-*/
-
-int		verline(t_data *d, int x)
-{
-	int i;
-
-	i = -1;
-	while (++i < d->drawstart)
-	{
-		if ((x + d->width * i) > -1 && (x + d->width * i) < d->limit)
-			d->data_addr[x + d->width * i] = rgb_to_int(d->c);
-	}
-	i = d->drawstart;
-	while (d->drawend - 1 > i && d->height > i)
-	{
-		d->txt.tex_y = (int)d->txt.pos & (d->txt.h - 1);
-		d->txt.pos += d->txt.step;
-		if ((x + d->width * i) > -1 && (x + d->width * i) < d->limit)
-			d->data_addr[x + d->width * i] = d->txt.color[d->txt.tex_x +
-				d->txt.h * d->txt.tex_y];
-		i++;
-	}
-	i = d->drawend - 1;
-	while (++i < d->height)
-	{
-		if ((x + d->width * i) > -1 && (x + d->width * i) < d->limit)
-			d->data_addr[x + d->width * i] = rgb_to_int(d->f);
-	}
 	return (1);
 }

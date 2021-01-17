@@ -6,13 +6,13 @@
 /*   By: iidzim <iidzim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 16:34:15 by iidzim            #+#    #+#             */
-/*   Updated: 2021/01/16 18:33:36 by iidzim           ###   ########.fr       */
+/*   Updated: 2021/01/17 18:35:09 by iidzim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_strlen(char *line)
+int			ft_strlen(char *line)
 {
 	int i;
 
@@ -22,7 +22,7 @@ int	ft_strlen(char *line)
 	return (i);
 }
 
-int	ft_strcmp(char *str, int c)
+int			ft_strcmp(char *str, int c)
 {
 	int i;
 
@@ -38,7 +38,7 @@ int	ft_strcmp(char *str, int c)
 	return (0);
 }
 
-int	ft_strncmp(char *s1, char *s2, size_t n)
+int			ft_strncmp(char *s1, char *s2, size_t n)
 {
 	size_t	i;
 	int		diff;
@@ -72,7 +72,7 @@ long long	ft_atoi(t_data *d, char *str)
 	return (n);
 }
 
-int	ft_rtsrts(char *s, char *to_find)
+int			ft_rtsrts(char *s, char *to_find)
 {
 	int l1;
 	int l2;

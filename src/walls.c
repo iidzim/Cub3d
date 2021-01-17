@@ -6,7 +6,7 @@
 /*   By: iidzim <iidzim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 16:32:56 by iidzim            #+#    #+#             */
-/*   Updated: 2021/01/16 17:54:41 by iidzim           ###   ########.fr       */
+/*   Updated: 2021/01/17 18:36:00 by iidzim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,39 +39,47 @@ void	ft_texture(t_data *d)
 void	ft_color(t_data *d)
 {
 	if (d->side == 1 && (d->mp_y < d->pos.y))
-		d->txt.color = (int*)d->txt.texture[0];
-	else if (d->side == 1 && (d->mp_y > d->pos.y))
 		d->txt.color = (int*)d->txt.texture[1];
+	else if (d->side == 1 && (d->mp_y > d->pos.y))
+		d->txt.color = (int*)d->txt.texture[0];
 	else if (d->side == 0 && (d->mp_x < d->pos.x))
-		d->txt.color = (int*)d->txt.texture[2];
-	else
 		d->txt.color = (int*)d->txt.texture[3];
+	else
+		d->txt.color = (int*)d->txt.texture[2];
 	d->s.color = (int*)d->txt.texture[4];
 }
 
-void	cast(t_data *d)
-{
-	int x;
+/*
+**draw the pixels of the stripe as a vertical line
+*/
 
-	x = 0;
-	d->buff = malloc(sizeof(double) * d->width);
-	while (x < d->width)
+int		verline(t_data *d, int x)
+{
+	int i;
+
+	i = -1;
+	while (++i < d->drawstart)
 	{
-		d->hit = 0;
-		calcul_pos_dir(d, x);
-		calcul_step_sidedist(d);
-		perform_dda(d);
-		project_line(d);
-		calcul_deltadist(d);
-		ft_texture(d);
-		ft_color(d);
-		verline(d, x);
-		d->buff[x] = (double)d->perpwalldis;
-		x++;
+		if ((x + d->width * i) > -1 && (x + d->width * i) < d->limit)
+			d->data_addr[x + d->width * i] = rgb_to_int(d->c);
 	}
-	sprite(d);
-	free(d->buff);
-	mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->img_ptr, 0, 0);
+	i = d->drawstart;
+	while (d->drawend - 1 > i && d->height > i)
+	{
+		d->txt.tex_y = (int)d->txt.pos & (d->txt.h - 1);
+		d->txt.pos += d->txt.step;
+		if ((x + d->width * i) > -1 && (x + d->width * i) < d->limit)
+			d->data_addr[x + d->width * i] = d->txt.color[d->txt.tex_x +
+				d->txt.h * d->txt.tex_y];
+		i++;
+	}
+	i = d->drawend - 1;
+	while (++i < d->height)
+	{
+		if ((x + d->width * i) > -1 && (x + d->width * i) < d->limit)
+			d->data_addr[x + d->width * i] = rgb_to_int(d->f);
+	}
+	return (1);
 }
 
 int		rgb_to_int(t_color c)

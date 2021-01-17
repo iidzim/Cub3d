@@ -6,7 +6,7 @@
 /*   By: iidzim <iidzim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 16:33:20 by iidzim            #+#    #+#             */
-/*   Updated: 2021/01/16 19:09:06 by iidzim           ###   ########.fr       */
+/*   Updated: 2021/01/17 18:39:54 by iidzim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,6 @@ void	ft_print_msg(char *msg, t_data *d)
 }
 
 void	ft_clear(char **str)
-{
-	int i;
-
-	if (!str)
-		return ;
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-}
-
-void	ft_clear_double(double **str)
 {
 	int i;
 
