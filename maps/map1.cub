@@ -1,11 +1,11 @@
 C  42,224,254
 F    224,224,224
 WE      ../texture/greystone.xpm
+
 EA      ../texture/redbrick.xpm
 S    ../texture/barrel.xpm
 
 
-R  4294967395  1000
 NO          ../texture/mossy.xpm
 SO         ../texture/bluestone.xpm
 
