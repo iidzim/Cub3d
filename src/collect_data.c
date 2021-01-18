@@ -6,7 +6,7 @@
 /*   By: iidzim <iidzim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 16:33:36 by iidzim            #+#    #+#             */
-/*   Updated: 2021/01/16 19:09:34 by iidzim           ###   ########.fr       */
+/*   Updated: 2021/01/18 14:39:46 by iidzim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ void	ft_check_resolution(t_data *d, char *s)
 		i == 1 ? w = ft_atoi(d, r[i++]) : 0;
 		i == 2 ? h = ft_atoi(d, r[i++]) : 0;
 	}
-	d->width = (w > MAX_INT) ? MAX_WIDTH : (int)w;
-	d->height = (h > MAX_INT) ? MAX_HEIGHT : (int)h;
+	d->width = ((w > MAX_INT) || (w > MAX_WIDTH)) ? MAX_WIDTH : (int)w;
+	d->height = ((h > MAX_INT) || (h > MAX_HEIGHT)) ? MAX_HEIGHT : (int)h;
 	(d->width < 0 || d->height < 0) ? ft_print_msg("wrong value -R", d) : 0;
 	d->limit = d->height * d->width;
 	d->element_cpt += 1;
