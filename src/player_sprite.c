@@ -6,7 +6,7 @@
 /*   By: iidzim <iidzim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 19:01:47 by iidzim            #+#    #+#             */
-/*   Updated: 2021/01/14 17:01:37 by iidzim           ###   ########.fr       */
+/*   Updated: 2021/01/19 18:16:42 by iidzim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ int		ft_check_ply_spr(t_data *d, int i, int j, int c)
 
 void	ft_init_player(t_data *d)
 {
-	if (d->ply.pos == 'N')
+	if (d->ply.pos == 'W')
 	{
 		d->plane.x = 0.66;
 		d->plane.y = 0;
 		d->dir.x = 0;
 		d->dir.y = -1;
 	}
-	if (d->ply.pos == 'S')
+	if (d->ply.pos == 'E')
 	{
 		d->plane.x = -0.66;
 		d->plane.y = 0;
@@ -47,14 +47,14 @@ void	ft_init_player(t_data *d)
 
 void	ft_init_player2(t_data *d)
 {
-	if (d->ply.pos == 'W')
+	if (d->ply.pos == 'N')
 	{
 		d->plane.x = 0;
 		d->plane.y = -0.66;
 		d->dir.x = -1;
 		d->dir.y = 0;
 	}
-	if (d->ply.pos == 'E')
+	if (d->ply.pos == 'S')
 	{
 		d->plane.x = 0;
 		d->plane.y = 0.66;

@@ -1,4 +1,4 @@
-R    50 50
+R    500 500
 NO        ../texture/mossy.xpm      
 SO ../texture/bluestone.xpm
 WE ../texture/greystone.xpm

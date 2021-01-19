@@ -6,7 +6,7 @@
 /*   By: iidzim <iidzim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 17:43:17 by iidzim            #+#    #+#             */
-/*   Updated: 2021/01/17 16:01:32 by iidzim           ###   ########.fr       */
+/*   Updated: 2021/01/19 18:15:56 by iidzim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int		ft_args(int argc, char **argv, t_data *d)
 			ft_print_msg("Error while opening the file", d);
 		ft_read_file(d, fd);
 	}
+	else
+		ft_print_msg("more than 3 arguments", d);
 	resize_map(d);
 	ft_get_data(d);
 	ft_check_map(d);

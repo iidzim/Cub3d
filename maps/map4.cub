@@ -1,11 +1,10 @@
-
-    R     546 500
+R     546 500
 NO        ../texture/mossy.xpm    
 SO ../texture/bluestone.xpm
 WE ../texture/greystone.xpm
 EA ../texture/redbrick.xpm
 S ../texture/greenlight.xpm
-F    224,224,224
+F    224,155,224
 
 C       10,10,10
 

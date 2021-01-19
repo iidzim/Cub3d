@@ -6,7 +6,7 @@
 /*   By: iidzim <iidzim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 16:48:39 by iidzim            #+#    #+#             */
-/*   Updated: 2021/01/17 18:51:31 by iidzim           ###   ########.fr       */
+/*   Updated: 2021/01/19 09:33:02 by iidzim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 # define KEY_UP 126
 # define KEY_DOWN 125
 
-# include "mlx.h"
 # include "get_next_line.h"
+# include <mlx.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <unistd.h>

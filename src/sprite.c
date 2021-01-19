@@ -6,7 +6,7 @@
 /*   By: iidzim <iidzim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 19:00:40 by iidzim            #+#    #+#             */
-/*   Updated: 2021/01/16 17:52:31 by iidzim           ###   ########.fr       */
+/*   Updated: 2021/01/19 09:16:46 by iidzim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	ft_draw_start_end(t_data *d)
 
 void	ft_draw_sprite(t_data *d, int i)
 {
-	int var;
 	int x;
 	int color;
 
@@ -80,11 +79,9 @@ void	ft_draw_sprite(t_data *d, int i)
 		{
 			x = i * 256 - d->height * 128 + d->s.h * 128;
 			d->s.tex_y = ((x * 64) / d->s.h) / 256;
-			var = 64 * d->s.tex_y + d->s.tex_x;
-			color = d->s.color[var];
+			color = d->s.color[64 * d->s.tex_y + d->s.tex_x];
 			if ((color & 0x00FFFFFF) != 0)
-				d->data_addr[i * d->width + d->s.stripe] =
-					d->s.color[64 * d->s.tex_y + d->s.tex_x];
+				d->data_addr[i * d->width + d->s.stripe] = color;
 		}
 	}
 }
